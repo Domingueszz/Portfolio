@@ -1,0 +1,139 @@
+/* Fundo escurecido que cobre a tela inteira */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35); /* transparência */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(12px); /* aplica o desfoque */
+  -webkit-backdrop-filter: blur(12px); /* suporte Safari */
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* O container do conteúdo do modal */
+.modalContent {
+  background: linear-gradient(145deg, #ffffff, #f7f9fc);
+  padding: 2.5rem 3.5rem;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 25px rgba(0, 120, 255, 0.2);
+  width: 90%;
+  max-width: 850px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid rgba(0, 120, 255, 0.2);
+  animation: slideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-60px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Botão para fechar o modal */
+.closeButton {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  color: #007bff;
+  cursor: pointer;
+  line-height: 1;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.closeButton:hover {
+  color: #000;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.closeButton:focus {
+    outline: none;
+}
+
+/* Estilos do conteúdo */
+.projectTitle {
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 1.2rem;
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  object-fit: cover;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.35s ease;
+}
+
+.mainImage:hover {
+  transform: scale(1.02);
+}
+
+/* Seções */
+.projectDescription h2, .gallerySection h2 {
+  font-size: 1.7rem;
+  color: #007bff;
+  margin-bottom: 0.7rem;
+  border-left: 4px solid #000;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+.projectDescription p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Galeria */
+.gallerySection {
+  margin-top: 2.5rem;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.2rem;
+}
+
+.galleryGrid img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.galleryGrid img:hover {
+  transform: scale(1.08);
+  border-color: #007bff;
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
