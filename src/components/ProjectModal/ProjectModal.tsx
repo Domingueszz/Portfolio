@@ -17,17 +17,69 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
+const getMediaType = (url: string): 'image' | 'video' | 'unknown' => {
+  if (!url) return 'unknown';
+  const extension = url.split('.').pop()?.toLowerCase();
+  const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'];
+  const videoExtensions = ['mp4', 'webm', 'ogg'];
+
+  if (imageExtensions.includes(extension!)) {
+    return 'image';
+  }
+  if (videoExtensions.includes(extension!)) {
+    return 'video';
+  }
+  return 'unknown';
+};
+
+
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   React.useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+    // ... (código do useEffect)
   }, []);
 
-  // Determina qual imagem e descrição serão exibidas no modal
-  const displayImage = project.mainImage || project.image;
-  const displayDescription = project.detailedDescription || project.description; // NOVO
+  const displayMediaUrl = project.mainImage || project.image;
+  const displayDescription = project.detailedDescription || project.description;
+  
+  // NOVO: Chama a função para saber o que renderizar
+  const mediaType = getMediaType(displayMediaUrl);
+
+  // NOVO: Função para renderizar o conteúdo de mídia
+  const renderMedia = () => {
+    switch (mediaType) {
+      case 'image':
+        return (
+          <img
+            src={displayMediaUrl}
+            alt={`Imagem principal do projeto ${project.title}`}
+            className={styles.mainMedia} // CSS ATUALIZADO
+          />
+        );
+      case 'video':
+        return (
+          <video
+            src={displayMediaUrl}
+            className={styles.mainMedia} // CSS ATUALIZADO
+            controls // Adiciona controles de play, pause, volume, etc.
+            autoPlay // Inicia o vídeo automaticamente
+            muted   // Necessário para o autoplay funcionar na maioria dos navegadores
+            loop    // Faz o vídeo reiniciar ao terminar
+            playsInline // Importante para mobile
+          >
+            Seu navegador não suporta o elemento de vídeo.
+          </video>
+        );
+      default:
+        // Fallback: se não reconhecer, tenta renderizar como imagem
+        return (
+          <img
+            src={displayMediaUrl}
+            alt={`Mídia do projeto ${project.title}`}
+            className={styles.mainMedia}
+          />
+        );
+    }
+  };
 
   return (
     <div className={styles.modalBackdrop} onClick={onClose}>
@@ -38,30 +90,15 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
 
         <h1 className={styles.projectTitle}>{project.title}</h1>
 
-        <img
-          src={displayImage}
-          alt={`Imagem principal do projeto ${project.title}`}
-          className={styles.mainImage}
-        />
+        {/* AQUI: Chamamos a função que renderiza a mídia correta */}
+        {renderMedia()} 
 
         <div className={styles.projectDescription}>
           <h2>Sobre o Projeto</h2>
-          <p>{displayDescription}</p> {/* AQUI: Usamos a descrição determinada */}
+          <p>{displayDescription}</p>
         </div>
 
-        <div className={styles.gallerySection}>
-          <h2>Galeria de Fotos e Vídeos</h2>
-          <div className={styles.galleryGrid}>
-            {project.galleryImages && project.galleryImages.length > 0 ? (
-              project.galleryImages.map((imgSrc, index) => (
-                <img key={index} src={imgSrc} alt={`Imagem ${index + 1} da galeria`} />
-              ))
-            ) : (
-              <p>Nenhuma imagem adicional na galeria.</p>
-            )}
-          </div>
-        </div>
-
+        {/* ... (resto do seu componente) */}
       </div>
     </div>
   );
