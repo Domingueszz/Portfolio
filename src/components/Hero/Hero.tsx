@@ -10,7 +10,7 @@ import {
 } from 'react-icons/si';
 import { DiJava } from 'react-icons/di';
 import { TbBrandReact } from 'react-icons/tb';
-import profilePhoto from '../../assets/images/perfil.png'; // Verifique se o caminho está correto
+import profilePhoto from '../../assets/images/perfilOficial.png'; // Verifique se o caminho está correto
 
 interface HeroProps {}
 
@@ -47,7 +47,7 @@ const Hero: React.FC<HeroProps> = () => {
               {/* Foto de perfil */}
               <div className={styles.profileContainer}>
                 <img
-                  src={"profilePhoto"} /* CORRIGIDO: Caminho da imagem */
+                  src={profilePhoto} /* CORRIGIDO: Caminho da imagem */
                   alt="Pablo - Web Designer"
                   className={styles.profileImage}
                 />

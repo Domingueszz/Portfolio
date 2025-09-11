@@ -23,6 +23,7 @@ interface Discipline {
   description: string;
   image: string; // Imagem para o card
   mainImage?: string; // NOVO: Imagem principal opcional para o modal
+  detailedDescription?: string; // NOVO: Descrição detalhada opcional para o modal
   galleryImages?: string[]; // Para mais imagens na galeria do modal
   videos?: string[]; // Para vídeos no modal
 }
@@ -40,6 +41,7 @@ const Disciplines: React.FC = () => {
       description: "Jogo desenvolvido com Java em Squad, aplicando POO como base do projeto.",
       image: starRageImage,
       //galleryImages:  
+      detailedDescription: "Star Rage é um jogo de nave 2D do gênero 'shoot 'em up', criado em Java puro com a biblioteca Swing para a interface gráfica. O projeto foi desenvolvido em equipe utilizando metodologias ágeis, com foco principal na aplicação dos conceitos de Programação Orientada a Objetos, como herança, polimorfismo e encapsulamento. O jogo inclui múltiplos tipos de inimigos, power-ups e um sistema de pontuação persistente.",
     },
     {
       id: 2,

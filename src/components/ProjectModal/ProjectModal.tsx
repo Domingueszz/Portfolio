@@ -1,19 +1,20 @@
 import React from 'react';
 import styles from './ProjectModal.module.css';
 
-// Definindo os tipos para os dados do projeto (deve ser o mesmo que Discipline)
+// Interface atualizada para incluir a nova descrição
 interface ProjectData {
   title: string;
   description: string;
-  image: string; // Imagem do card
-  mainImage?: string; // Imagem principal opcional para o modal
+  detailedDescription?: string; // NOVO
+  image: string;
+  mainImage?: string;
   galleryImages?: string[];
   videos?: string[];
 }
 
 interface ProjectModalProps {
   project: ProjectData;
-  onClose: () => void; // Função para fechar o modal
+  onClose: () => void;
 }
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
@@ -24,8 +25,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
     };
   }, []);
 
-  // Determina qual imagem será exibida como principal no modal
+  // Determina qual imagem e descrição serão exibidas no modal
   const displayImage = project.mainImage || project.image;
+  const displayDescription = project.detailedDescription || project.description; // NOVO
 
   return (
     <div className={styles.modalBackdrop} onClick={onClose}>
@@ -37,17 +39,16 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
         <h1 className={styles.projectTitle}>{project.title}</h1>
 
         <img
-          src={displayImage} // AQUI: Usamos a imagem determinada
+          src={displayImage}
           alt={`Imagem principal do projeto ${project.title}`}
           className={styles.mainImage}
         />
 
         <div className={styles.projectDescription}>
           <h2>Sobre o Projeto</h2>
-          <p>{project.description}</p>
+          <p>{displayDescription}</p> {/* AQUI: Usamos a descrição determinada */}
         </div>
 
-        {/* Espaço para mais fotos e vídeos */}
         <div className={styles.gallerySection}>
           <h2>Galeria de Fotos e Vídeos</h2>
           <div className={styles.galleryGrid}>
