@@ -8,14 +8,16 @@ import styles from './Disciplines.module.css';
 import starRageImage from '../../assets/images/starRage.png'
 import cafeteriaImage from '../../assets/images/cafeteria.png'
 import fiscalImage from '../../assets/images/fiscal.png'
-import loginImage from '../../assets/images/login.png'
 import todoImage from '../../assets/images/todo.png'
 import notesImage from '../../assets/images/notes.png'
 import contadorImage from '../../assets/images/contador.png'
 import formsImage from '../../assets/images/forms.png'
 import quizImage from '../../assets/images/quiz.png'
 import iphoneImage from '../../assets/images/iphone.png'
+
+// Videos:
 import starVideo from '../../assets/videos/star.mp4'
+import cafeVideo from '../../assets/videos/cafeteria.mp4'
 
 
 
@@ -56,6 +58,8 @@ const Disciplines: React.FC = () => {
       title: "Cafeteria",
       description: "Projeto desenvolvido em C# e ASP.NET MVC, que simula o gerenciamento de uma cafeteria.",
       image: cafeteriaImage,
+      mainImage: cafeVideo,
+      detailedDescription: "",
     },
     {
       "id": 4,
