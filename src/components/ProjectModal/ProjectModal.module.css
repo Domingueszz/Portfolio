@@ -138,3 +138,35 @@
   border-color: #007bff;
   box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
 }
+
+.repoButton {
+  display: inline-block;
+  margin-top: 1.5rem; 
+  padding: 12px 28px;
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.repoButton:hover {
+  background-color: #fff;
+  color: #007bff;
+  border-color: #007bff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+}
+
+.repoButton:focus {
+  outline: none;
+}
+
+.projectText p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}

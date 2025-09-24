@@ -1,4 +1,5 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer'; // Importa o hook
 import styles from './Hero.module.css';
 import { 
   SiCplusplus, 
@@ -10,22 +11,35 @@ import {
 } from 'react-icons/si';
 import { DiJava } from 'react-icons/di';
 import { TbBrandReact } from 'react-icons/tb';
-import profilePhoto from '../../assets/images/perfilOficial.png'; // Verifique se o caminho está correto
+import profilePhoto from '../../assets/images/perfilOficial.png';
 
 interface HeroProps {}
 
 const Hero: React.FC<HeroProps> = () => {
+  const { ref: textRef, inView: textInView } = useInView({
+    triggerOnce: true, 
+    threshold: 0.1,    
+  });
+
+  const { ref: imageRef, inView: imageInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <section id="home" className={styles.hero}>
       <div className="container">
         <div className={styles.content}>
-          <div className={styles.textContent}>
+          
+          <div 
+            ref={textRef} 
+            className={`${styles.textContent} ${textInView ? styles.isVisible : ''}`}
+          >
             <h1 className={styles.heading}>
               Olá, eu sou <span className={styles.highlight}>Pablo</span>
             </h1>
-            <p className={styles.subheading}>Web Designer</p>
+            <p className={styles.subheading}>Desenvolvedor Front-end</p>
 
-            {/* Seus ícones permanecem aqui, sem alterações */}
             <div className={styles.icons}>
               <SiCplusplus className={styles.icon} title="C++" />
               <DiJava className={styles.icon} title="Java" />
@@ -36,18 +50,18 @@ const Hero: React.FC<HeroProps> = () => {
               <TbBrandReact className={styles.icon} title="ReactTS" />
               <SiExpo className={styles.icon} title="Expo" />
             </div>
-
           </div>
           
-          <div className={styles.imageContent}>
+          <div 
+            ref={imageRef}
+            className={`${styles.imageContent} ${imageInView ? styles.isVisible : ''}`}
+          >
             <div className={styles.imageWrapper}>
-              {/* Blob animado azul atrás da foto */}
               <div className={styles.animatedBlob}></div>
 
-              {/* Foto de perfil */}
               <div className={styles.profileContainer}>
                 <img
-                  src={profilePhoto} /* CORRIGIDO: Caminho da imagem */
+                  src={profilePhoto}
                   alt="Pablo - Web Designer"
                   className={styles.profileImage}
                 />

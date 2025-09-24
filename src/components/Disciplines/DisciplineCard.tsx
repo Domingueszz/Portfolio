@@ -26,7 +26,7 @@ const DisciplineCard: React.FC<DisciplineCardProps> = ({
         <button
           className={styles.viewButton}
           aria-label={`View details for ${title}`}
-          onClick={onViewProject} // Adicionamos o evento onClick aqui
+          onClick={onViewProject} 
         >
           Ver Projeto
         </button>

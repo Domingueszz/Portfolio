@@ -166,6 +166,27 @@
   }
 }
 
+.textContent,
+.imageContent {
+  opacity: 0;
+  transform: translateY(20px); /* Começa um pouco para baixo */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Estilo aplicado quando o elemento se torna visível.
+  A classe .isVisible é adicionada pelo React quando `inView` se torna true.
+*/
+.textContent.isVisible,
+.imageContent.isVisible {
+  opacity: 1;
+  transform: translateY(0); /* Volta para a posição original */
+}
+
+/* Opcional: Adiciona um pequeno atraso na animação da imagem */
+.imageContent {
+  transition-delay: 0.2s;
+}
+
 /* --- ANIMAÇÕES ADICIONADAS --- */
 @keyframes blob {
   0% {

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import DisciplineCard from './DisciplineCard';
-// Presumindo que o modal está na pasta components
 import ProjectModal from '../ProjectModal/ProjectModal'; 
 import styles from './Disciplines.module.css';
 
@@ -17,7 +16,15 @@ import iphoneImage from '../../assets/images/iphone.png'
 
 // Videos:
 import starVideo from '../../assets/videos/star.mp4'
+import fiscalVIdeo from '../../assets/videos/fiscal.mp4'
 import cafeVideo from '../../assets/videos/cafeteria.mp4'
+import contadorVideo from '../../assets/videos/contador.mp4'
+import todoVideo from '../../assets/videos/todo.mp4'
+import notesVideo from '../../assets/videos/notes.mp4'
+import formsVideo from '../../assets/videos/forms.mp4'
+import cloneVideo from '../../assets/videos/clone.mp4'
+import quizVideo from '../../assets/videos/quiz.mp4'
+
 
 
 
@@ -25,17 +32,17 @@ interface Discipline {
   id: number;
   title: string;
   description: string;
-  image: string; // Imagem para o card
-  mainImage?: string; // NOVO: Imagem principal opcional para o modal
-  detailedDescription?: string; // NOVO: Descrição detalhada opcional para o modal
-  galleryImages?: string[]; // Para mais imagens na galeria do modal
-  videos?: string[]; // Para vídeos no modal
+  image: string; 
+  mainImage?: string; 
+  detailedDescription?: string; 
+  galleryImages?: string[]; 
+  videos?: string[]; 
+  repoUrl?: string;
 }
 
 const Disciplines: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
   
-  // NOVO: Estado para controlar o modal
   const [selectedProject, setSelectedProject] = useState<Discipline | null>(null);
 
   const disciplines: Discipline[] = [
@@ -45,13 +52,27 @@ const Disciplines: React.FC = () => {
       description: "Jogo desenvolvido com Java em Squad, aplicando POO como base do projeto.",
       image: starRageImage,
       mainImage: starVideo,
-      detailedDescription: "Star Rage é um jogo de nave 2D do gênero 'shoot 'em up', criado em Java puro com a biblioteca Swing para a interface gráfica. O projeto foi desenvolvido em equipe utilizando metodologias ágeis, com foco principal na aplicação dos conceitos de Programação Orientada a Objetos, como herança, polimorfismo e encapsulamento. O jogo inclui múltiplos tipos de inimigos, power-ups e um sistema de pontuação persistente.",
+      detailedDescription: `Em 2024, tive a oportunidade de participar de um projeto muito especial durante meu período 
+      de faculdade e estágio: o desenvolvimento do jogo STAR RAGE, feito em Squad com outros estagiários da 2RP Net.
+      \n
+      O desafio foi implementar um jogo em Java, com foco em explorar os conceitos de POO (Programação Orientada a Objetos) 
+      na prática.
+      \n
+      Além da parte técnica, foi uma experiência incrível de colaboração, troca de conhecimento e 
+      aprendizado em equipe.`,
+
+      repoUrl: "https://github.com/Domingueszz/Game-STAR-RAGE.git",
     },
     {
       id: 2,
       title: "Fiscal API",
       description: "API em python de leitura e extração de campos de nota fiscal.",
       image: fiscalImage,
+      mainImage: fiscalVIdeo,
+      detailedDescription: `O projeto trata-se de uma API que recebe uma Nota Fiscal como um arquivo de imagem ou PDF, 
+      "lê" o documento com inteção a IA do Gemini para encontrar o Valor Total, a Data de Emissão e o CNPJ, 
+      salva essas informações em um banco de dados e retorna esses mesmos dados para o usuário em formato JSON.`,
+      repoUrl: "https://github.com/Avaliacao-de-Desempenho/Pablo-Sanches",
     },
     {
       id: 3,
@@ -59,49 +80,99 @@ const Disciplines: React.FC = () => {
       description: "Projeto desenvolvido em C# e ASP.NET MVC, que simula o gerenciamento de uma cafeteria.",
       image: cafeteriaImage,
       mainImage: cafeVideo,
-      detailedDescription: "",
+      detailedDescription: `projeto desenvolvido em C# e ASP.NET MVC, que simula o gerenciamento de uma cafeteria. 
+      O sistema implementa as operações CRUD (Create, Read, Update, Delete) para manipulação de pedidos, produtos 
+      e clientes, proporcionando um exemplo prático de como estruturar um aplicativo web funcional.`,
+    
+      repoUrl: "https://github.com/Domingueszz/Projeto_Cafeteria.git",
     },
     {
-      "id": 4,
-      "title": "Contador",
-      "description": "Contador regressivo desenvolvido com React + JS.",
-      "image": contadorImage,
+      id: 4,
+      title: "Contador",
+      description: "Contador regressivo desenvolvido com React + JS.",
+      image: contadorImage,
+      mainImage: contadorVideo,
+      detailedDescription: `Este projeto consiste em um contador regressivo (countdown timer) desenvolvido com React.js 
+      utilizando o Vite como bundler para otimizar performance e tempo de desenvolvimento.
+      \n
+      A aplicação permite ao usuário escolher entre datas pré-definidas (como feriados, datas comemorativas ou eventos) 
+      ou definir manualmente uma data e hora personalizada, e exibe um cronômetro regressivo em tempo real.`,
+      
+      repoUrl: "https://github.com/Domingueszz/ProjetosFrontEnd/tree/main/REACT/React_JS/4_Contador",
     },
     {
-      "id": 5,
-      "title": "To do List",
-      "description": "Projeto visado para o desenvolvimento do método To do.",
-      "image": todoImage,
+      id: 5,
+      title: "To do List",
+      description: "Projeto visado para o desenvolvimento do método To do.",
+      image: todoImage,
+      mainImage: todoVideo,
+      detailedDescription: `Este projeto tem como objetivo desenvolver uma Lista de Tarefas (ToDo) avançada,
+      utilizando HTML, CSS e JavaScript, com persistência de dados por meio do LocalStorage.
+      
+      A aplicação permite adicionar, editar, remover e marcar tarefas como concluídas, mesmo após fechar ou recarregar a página.`,
+      
+      repoUrl: "https://github.com/Domingueszz/ProjetosFrontEnd/tree/main/J.S/11_TodoList",
     },
     {
-      "id": 6,
-      "title": "Notes",
-      "description": "Página web de anotações. Elaborada com HTML&CSS + JS.",
-      "image": notesImage,
+      id: 6,
+      title: "Notes",
+      description: "Página web de anotações. Elaborada com HTML&CSS + JS.",
+      image: notesImage,
+      mainImage: notesVideo,
+      detailedDescription: `Este projeto tem como objetivo o desenvolvimento de um organizador de notas completo, 
+      no qual o usuário pode criar, editar, excluir e exportar anotações de forma intuitiva e eficiente. 
+      \n
+      Utilizando HTML, CSS e JavaScript, a aplicação armazena os dados no LocalStorage, 
+      garantindo persistência mesmo após o fechamento do navegador.`,
+      
+
+      repoUrl: "https://github.com/Domingueszz/ProjetosFrontEnd/tree/main/J.S/13_DevNotes",
     },
     {
-      "id": 7,
-      "title": "Formulário de Feedback",
-      "description": "Projeto que simula formulário de feedback de uma página. Visando a validação dos campos e interação dos usuários.",
-      "image": formsImage,
+      id: 7,
+      title: "Formulário de Feedback",
+      description: "Projeto que simula formulário de feedback de uma página. Visando a validação dos campos e interação dos usuários.",
+      image: formsImage,
+      mainImage: formsVideo,
+      detailedDescription: `Este projeto consiste na criação de um formulário de avaliação dividido em três etapas, 
+      desenvolvido com React.js.
+      \n
+      O objetivo é coletar informações do usuário de forma progressiva — como nome, e-mail e feedback — e garantir que os 
+      dados preenchidos em cada etapa permaneçam salvos durante a navegação entre as telas.`,
+
+      repoUrl: "https://github.com/Domingueszz/ProjetosFrontEnd/tree/main/REACT/React_JS/2_Forms",
     },
     {
-      "id": 8,
-      "title": "Clone Iphone page",
-      "description": "Reprodução da página do iphone 13. Elaborado com HTML + CSS somente.",
-      "image": iphoneImage,
+      id: 8,
+      title: "Clone Iphone page",
+      description: "Reprodução da página do iphone 13. Elaborado com HTML + CSS somente.",
+      image: iphoneImage,
+      mainImage: cloneVideo,
+      detailedDescription: `Este projeto tem como objetivo recriar a página oficial da Apple do iPhone 13 Pro Max, 
+      aplicando conceitos de HTML, CSS, JavaScript e design responsivo.
+      \n
+      A proposta é replicar o layout e algumas das interações da página original.`,
+
+
+      repoUrl: "https://github.com/Domingueszz/ProjetosFrontEnd/tree/main/HTML%26CSS/8_iPhone",
     },
     {
       id: 9,
       title: "Quiz",
       description: "Construído com React + JS, este projeto consiste em um quiz sobre front-end básico.",
       image: quizImage,
+      mainImage: quizVideo,
+      detailedDescription: `Este projeto tem como objetivo desenvolver um quiz interativo sobre programação, 
+      utilizando React.js e JavaScript. 
+      \n
+      A aplicação apresenta perguntas de múltipla escolha sobre temas como HTML, CSS, JavaScript e 
+      lógica de programação, fornecendo feedback imediato ao usuário e exibindo a pontuação final ao término do quiz.`,
+      repoUrl: "https://github.com/Domingueszz/ProjetosFrontEnd/tree/main/REACT/React_JS/3_Quiz",
     },
   ];
 
   const visibleDisciplines = showAll ? disciplines : disciplines.slice(0, 6);
 
-  // NOVO: Funções para abrir e fechar o modal
   const handleViewProject = (project: Discipline) => {
     setSelectedProject(project);
   };
@@ -124,7 +195,6 @@ const Disciplines: React.FC = () => {
                 title={discipline.title}
                 description={discipline.description}
                 image={discipline.image}
-                // ATUALIZADO: Passando a função para o card
                 onViewProject={() => handleViewProject(discipline)}
               />
             ))}
@@ -143,7 +213,6 @@ const Disciplines: React.FC = () => {
         </div>
       </section>
 
-      {/* NOVO: Renderização condicional do Modal */}
       {selectedProject && (
         <ProjectModal 
           project={selectedProject} 

@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './ProjectModal.module.css';
 
-// Interface atualizada para incluir a nova descrição
 interface ProjectData {
   title: string;
   description: string;
-  detailedDescription?: string; // NOVO
+  detailedDescription?: string; 
+  repoUrl?: string;
   image: string;
   mainImage?: string;
   galleryImages?: string[];
@@ -32,19 +32,14 @@ const getMediaType = (url: string): 'image' | 'video' | 'unknown' => {
   return 'unknown';
 };
 
-
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
-  React.useEffect(() => {
-    // ... (código do useEffect)
-  }, []);
+  React.useEffect(() => {}, []);
 
   const displayMediaUrl = project.mainImage || project.image;
   const displayDescription = project.detailedDescription || project.description;
   
-  // NOVO: Chama a função para saber o que renderizar
   const mediaType = getMediaType(displayMediaUrl);
 
-  // NOVO: Função para renderizar o conteúdo de mídia
   const renderMedia = () => {
     switch (mediaType) {
       case 'image':
@@ -52,25 +47,24 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           <img
             src={displayMediaUrl}
             alt={`Imagem principal do projeto ${project.title}`}
-            className={styles.mainMedia} // CSS ATUALIZADO
+            className={styles.mainMedia} 
           />
         );
       case 'video':
         return (
           <video
             src={displayMediaUrl}
-            className={styles.mainMedia} // CSS ATUALIZADO
-            controls // Adiciona controles de play, pause, volume, etc.
-            autoPlay // Inicia o vídeo automaticamente
-            muted   // Necessário para o autoplay funcionar na maioria dos navegadores
-            loop    // Faz o vídeo reiniciar ao terminar
-            playsInline // Importante para mobile
+            className={styles.mainMedia} 
+            controls 
+            autoPlay 
+            muted   
+            loop    
+            playsInline 
           >
             Seu navegador não suporta o elemento de vídeo.
           </video>
         );
       default:
-        // Fallback: se não reconhecer, tenta renderizar como imagem
         return (
           <img
             src={displayMediaUrl}
@@ -90,15 +84,28 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
 
         <h1 className={styles.projectTitle}>{project.title}</h1>
 
-        {/* AQUI: Chamamos a função que renderiza a mídia correta */}
         {renderMedia()} 
 
         <div className={styles.projectDescription}>
           <h2>Sobre o Projeto</h2>
-          <p>{displayDescription}</p>
-        </div>
 
-        {/* ... (resto do seu componente) */}
+          <div className={styles.projectText}>
+            {displayDescription.split("\n\n").map((paragraph, index) => (
+              <p key={index}>{paragraph.trim()}</p>
+            ))}
+          </div>
+
+          {project.repoUrl && (
+            <a 
+              href={project.repoUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={styles.repoButton}
+            >
+              Ver Repositório no GitHub
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
