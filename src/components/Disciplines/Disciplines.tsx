@@ -169,6 +169,18 @@ const Disciplines: React.FC = () => {
       lógica de programação, fornecendo feedback imediato ao usuário e exibindo a pontuação final ao término do quiz.`,
       repoUrl: "https://github.com/Domingueszz/ProjetosFrontEnd/tree/main/REACT/React_JS/3_Quiz",
     },
+    {
+      id: 10,
+      title: "Memories",
+      description: "Projeto Full-Stack - Backend + Banco de dados integrado com Frontend.",
+      image: quizImage,
+      mainImage: quizVideo,
+      detailedDescription: `É uma aplicação web completa que permite aos usuários registrar e revisitar seus momentos especiais. Funciona como um diário digital moderno, onde cada "memória" é composta por uma foto, um título e uma descrição. 
+      \n
+      A aplicação apresenta perguntas de múltipla escolha sobre temas como HTML, CSS, JavaScript e 
+      lógica de programação, fornecendo feedback imediato ao usuário e exibindo a pontuação final ao término do quiz.`,
+      repoUrl: "https://github.com/Domingueszz/ProjetosFrontEnd/tree/main/REACT/React_JS/3_Quiz",
+    },
   ];
 
   const visibleDisciplines = showAll ? disciplines : disciplines.slice(0, 6);
