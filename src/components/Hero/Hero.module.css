@@ -1,7 +1,14 @@
 .hero {
+  position: relative;
+  overflow: hidden;
   padding: var(--space-3xl) 0;
   margin-top: 70px;
   background: var(--color-white);
+}
+
+.containerContent {
+  position: relative;
+  z-index: 1;
 }
 
 .content {
@@ -11,21 +18,46 @@
   align-items: center;
 }
 
+.textContent {
+  text-align: center;
+}
+
+.imageContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: -1; /* Coloca a imagem no topo em telas pequenas */
+  transition-delay: 0.2s;
+}
+
+.icons {
+  display: flex;
+  justify-content: center; /* Padrão para mobile: ícones centralizados */
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* Regras para Desktop / Telas Maiores */
 @media (min-width: 768px) {
   .content {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-3xl);
   }
-}
 
-.textContent {
-  text-align: center;
-}
-
-@media (min-width: 768px) {
   .textContent {
     text-align: left;
+    order: 1; /* Garante que o texto fique na primeira coluna (esquerda) */
   }
+  
+  .imageContent {
+    order: 2; /* Garante que a imagem fique na segunda coluna (direita) */
+  }
+
+  /* --- AJUSTE DOS ÍCONES APLICADO AQUI --- */
+  .icons {
+    justify-content: flex-start; /* Alinha os ícones à esquerda em telas grandes */
+  }
+  /* ------------------------------------- */
 }
 
 .heading {
@@ -47,25 +79,6 @@
   font-weight: 400;
 }
 
-/* --- NOVAS REGRAS PARA A LISTA DE INFORMAÇÕES --- */
-.cta {
-  margin-bottom: var(--space-xl);
-}
-
-/* --- REGRAS ORIGINAIS DOS ÍCONES (INTOCADAS) --- */
-.icons {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-md);
-  flex-wrap: wrap;
-}
-
-@media (min-width: 768px) {
-  .icons {
-    justify-content: flex-start;
-  }
-}
-
 .icon {
   font-size: var(--font-size-2xl);
   color: var(--color-gray-600);
@@ -75,20 +88,6 @@
 .icon:hover {
   color: var(--color-primary);
   transform: scale(1.2);
-}
-
-/* --- REGRAS ATUALIZADAS PARA A IMAGEM E BLOB --- */
-.imageContent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  order: -1; /* Move a imagem para cima em telas pequenas */
-}
-
-@media (min-width: 768px) {
-  .imageContent {
-    order: 0; /* Ordem normal em telas maiores */
-  }
 }
 
 .imageWrapper {
@@ -126,96 +125,41 @@
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   z-index: 1;
   animation: blob 15s ease-in-out infinite, 
-             gradientShift 8s ease-in-out infinite, 
-             shadowPulse 2s ease-in-out infinite;
-}
-
-/* Animação para morphing da forma do blob */
-@keyframes blob {
-  0% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-  25% {
-    border-radius: 30% 70% 40% 60% / 40% 60% 30% 70%;
-  }
-  50% {
-    border-radius: 70% 30% 60% 40% / 30% 70% 40% 60%;
-  }
-  75% {
-    border-radius: 40% 60% 70% 30% / 70% 40% 60% 30%;
-  }
-  100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-}
-
-
-/* Preservando a responsividade para telas menores */
-@media (max-width: 567px) {
-  .imageWrapper {
-    width: 250px;
-    height: 250px;
-  }
-  .animatedBlob {
-    width: 240px;
-    height: 240px;
-  }
-  .profileContainer {
-    width: 200px;
-    height: 200px;
-  }
+             gradientShift 8s ease-in-out infinite;
 }
 
 .textContent,
 .imageContent {
   opacity: 0;
-  transform: translateY(20px); /* Começa um pouco para baixo */
+  transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Estilo aplicado quando o elemento se torna visível.
-  A classe .isVisible é adicionada pelo React quando `inView` se torna true.
-*/
 .textContent.isVisible,
 .imageContent.isVisible {
   opacity: 1;
-  transform: translateY(0); /* Volta para a posição original */
+  transform: translateY(0);
 }
 
-/* Opcional: Adiciona um pequeno atraso na animação da imagem */
-.imageContent {
-  transition-delay: 0.2s;
-}
-
-/* --- ANIMAÇÕES ADICIONADAS --- */
 @keyframes blob {
-  0% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    transform: rotate(0deg) scale(1);
-  }
-  25% {
-    border-radius: 70% 30% 60% 40% / 30% 60% 40% 70%;
-    transform: rotate(90deg) scale(0.95);
-  }
-  50% {
-    border-radius: 50% 50% 30% 70% / 40% 60% 70% 30%;
-    transform: rotate(180deg) scale(1.05);
-  }
-  75% {
-    border-radius: 40% 60% 70% 30% / 50% 50% 60% 40%;
-    transform: rotate(270deg) scale(0.95);
-  }
-  100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    transform: rotate(360deg) scale(1);
-  }
+  0% { transform: rotate(0deg) scale(1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25% { transform: rotate(90deg) scale(0.95); border-radius: 30% 70% 40% 60% / 40% 60% 30% 70%; }
+  50% { transform: rotate(180deg) scale(1.05); border-radius: 70% 30% 60% 40% / 30% 70% 40% 60%; }
+  75% { transform: rotate(270deg) scale(0.95); border-radius: 40% 60% 70% 30% / 70% 40% 60% 30%; }
+  100% { transform: rotate(360deg) scale(1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }
 
 @keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Garante que a animação fique contida na seção Hero */
+.hero :global(#tsparticles) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }

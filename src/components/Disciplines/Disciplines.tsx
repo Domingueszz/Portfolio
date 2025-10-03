@@ -13,6 +13,7 @@ import contadorImage from '../../assets/images/contador.png'
 import formsImage from '../../assets/images/forms.png'
 import quizImage from '../../assets/images/quiz.png'
 import iphoneImage from '../../assets/images/iphone.png'
+import memoryImage from '../../assets/images/memory.png'
 
 // Videos:
 import starVideo from '../../assets/videos/star.mp4'
@@ -24,6 +25,7 @@ import notesVideo from '../../assets/videos/notes.mp4'
 import formsVideo from '../../assets/videos/forms.mp4'
 import cloneVideo from '../../assets/videos/clone.mp4'
 import quizVideo from '../../assets/videos/quiz.mp4'
+import memoryVideo from '../../assets/videos/memories.mp4'
 
 
 
@@ -173,8 +175,8 @@ const Disciplines: React.FC = () => {
       id: 10,
       title: "Memories",
       description: "Projeto Full-Stack - Backend + Banco de dados integrado com Frontend.",
-      image: quizImage,
-      mainImage: quizVideo,
+      image: memoryImage,
+      mainImage: memoryVideo,
       detailedDescription: `É uma aplicação web completa que permite aos usuários registrar e revisitar seus momentos especiais. Funciona como um diário digital moderno, onde cada "memória" é composta por uma foto, um título e uma descrição. 
       \n
       A aplicação apresenta perguntas de múltipla escolha sobre temas como HTML, CSS, JavaScript e 
