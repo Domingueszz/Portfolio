@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
           init={particlesInit}
           loaded={particlesLoaded}
           options={{
-              fullScreen: { enable: false }, // <-- MUDANÇA IMPORTANTE AQUI
+              fullScreen: { enable: false }, 
               background: {
                   color: {
                       value: "var(--color-white)",

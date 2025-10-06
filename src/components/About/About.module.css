@@ -1,12 +1,12 @@
 .about {
   padding: var(--space-3xl) 0;
-  background: var(--color-gray-50);
+  background: #0c0e13; /* ALTERADO */
 }
 
 .title {
   font-size: var(--font-size-3xl);
   font-weight: 700;
-  color: rgb(0, 123, 255);
+  color: var(--color-primary); /* ALTERADO: Para usar a variável primária */
   text-align: center;
   margin-bottom: var(--space-2xl);
   letter-spacing: 0.05em;
@@ -21,7 +21,7 @@
 .paragraph {
   font-size: var(--font-size-lg);
   line-height: 1.7;
-  color: var(--color-gray-600);
+  color: var(--color-gray-400); /* ALTERADO */
   margin-bottom: var(--space-lg);
 }
 
@@ -40,5 +40,50 @@
 @media (min-width: 768px) {
   .stats {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: #161b22; /* ALTERADO */
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+  box-shadow: none; /* ALTERADO */
+  transition: var(--transition);
+  border: 1px solid #30363d; /* ALTERADO */
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary); /* ALTERADO */
+}
+
+.iconContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 50%;
+  margin-bottom: var(--space-md);
+  animation: float 2s infinite ease-in-out;
+}
+
+/* CORRIGIDO: Seletor mais específico para o título do card */
+.card .title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-gray-200); /* ALTERADO */
+  line-height: 1.4;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
   }
 }

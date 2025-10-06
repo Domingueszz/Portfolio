@@ -3,8 +3,8 @@
   top: 0;
   left: 0;
   right: 0;
-  background: var(--color-white);
-  box-shadow: var(--shadow);
+  background: #0a0b0f; /* ALTERADO */
+  box-shadow: #4f95ff33 0px 2px 12px;
   z-index: 1000;
 }
 
@@ -27,13 +27,13 @@
 .brand {
   font-size: var(--font-size-xl);
   font-weight: 700;
-  color: var(--color-gray-900);
+  color: var(--color-white); /* ALTERADO */
 }
 
 .brandButton {
   font-size: var(--font-size-xl);
   font-weight: 700;
-  color: var(--color-gray-900);
+  color: var(--color-white); /* ALTERADO */
   transition: var(--transition);
 }
 
@@ -41,7 +41,6 @@
   color: var(--color-primary);
   outline: none;
   box-shadow: none;
-
 }
 
 .navList {
@@ -59,7 +58,7 @@
 
 .navLink {
   font-weight: 500;
-  color: var(--color-gray-700);
+  color: var(--color-gray-400); /* ALTERADO */
   transition: var(--transition);
   position: relative;
   padding: var(--space-xs) 0;
@@ -83,15 +82,13 @@
   height: 2px;
   background: var(--color-primary);
   border-radius: 1px;
-
-  /* estado inicial da linha */
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease-in-out;
 }
 
 .navLink.active::after {
-  transform: scaleX(1); /* linha aparece animada */
+  transform: scaleX(1);
 }
 
 @media (max-width: 567px) {

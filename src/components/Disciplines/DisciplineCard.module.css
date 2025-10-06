@@ -1,43 +1,38 @@
 /* --- Configuração do Card --- */
 .card {
-  position: relative; /* Essencial para posicionar as linhas da borda */
-  background: var(--color-white);
+  position: relative;
+  background: #161b22;
   border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow);
-  overflow: hidden; /* Mantém o overflow hidden */
+  box-shadow: none; /* Mantemos sem sombra no estado normal para o foco ser no hover */
+  overflow: hidden;
   transition: var(--transition);
-  
-  /* Remove a borda estática original para substituí-la pela animação */
-  border: none; 
-  /* border: 1px solid var(--color-gray-200); <-- Remova ou comente esta linha */
+  border: none;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+  /* REESTABELECIDO E AJUSTADO: Sombra azul para o hover */
+  box-shadow: 0 15px 30px rgba(var(--color-primary-rgb), 0.3), 0 0 10px rgba(var(--color-primary-rgb), 0.2);
 }
 
 /* --- Estilização Base das Linhas --- */
 .line {
   position: absolute;
-  background-color: var(--color-primary); /* Cor da linha animada */
+  background-color: var(--color-primary);
   transition: all 0.3s ease-out;
 }
 
 /* --- Posição e Estado Inicial das Linhas --- */
-
-/* Linha Superior (Top) e Inferior (Bottom) */
 .line-top, .line-bottom {
-  height: 2px; /* Espessura da linha horizontal */
-  width: 0;    /* Começa com largura zero (invisível) */
+  height: 2px;
+  width: 0;
 }
 .line-top { top: 0; left: 0; }
 .line-bottom { bottom: 0; right: 0; }
 
-/* Linha Direita (Right) e Esquerda (Left) */
 .line-right, .line-left {
-  width: 2px;   /* Espessura da linha vertical */
-  height: 0;   /* Começa com altura zero (invisível) */
+  width: 2px;
+  height: 0;
 }
 .line-right { top: 0; right: 0; }
 .line-left { bottom: 0; left: 0; }
@@ -45,18 +40,12 @@
 /* --- Animação no Hover --- */
 .card:hover .line-top,
 .card:hover .line-bottom {
-  width: 100%; /* Expande a largura total no hover */
+  width: 100%;
 }
 
 .card:hover .line-right,
 .card:hover .line-left {
-  height: 100%; /* Expande a altura total no hover */
-}
-
-/* --- Hover do Card --- */
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg); 
+  height: 100%;
 }
 
 /* --- Imagem --- */
@@ -83,13 +72,14 @@
   position: absolute;
   top: var(--space-md);
   right: var(--space-md);
-  background: var(--color-white);
-  color: var(--color-gray-700);
+  background: #0d1117;
+  color: var(--color-gray-300);
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--border-radius);
   font-size: var(--font-size-sm);
   font-weight: 500;
-  box-shadow: var(--shadow);
+  box-shadow: none;
+  border: 1px solid #30363d;
   transition: all 0.3s ease;
   opacity: 0.9;
 }
@@ -98,7 +88,7 @@
   background: var(--color-primary);
   color: var(--color-white);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
 }
 
 .viewButton:focus {
@@ -113,13 +103,25 @@
 .title {
   font-size: var(--font-size-xl);
   font-weight: 600;
-  color: var(--color-gray-900);
+  color: var(--color-gray-200);
   margin-bottom: var(--space-sm);
   line-height: 1.3;
+  transition: text-shadow 0.3s ease-out; /* Adicionado transição para text-shadow */
+}
+
+/* EFEITO EXTRA: Brilho no texto no hover */
+.card:hover .title {
+  text-shadow: 0 0 8px rgba(var(--color-primary-rgb), 0.7); /* Brilho no título */
 }
 
 .description {
   font-size: var(--font-size-base);
-  color: var(--color-gray-600);
+  color: var(--color-gray-400);
   line-height: 1.6;
+  transition: text-shadow 0.3s ease-out; /* Adicionado transição para text-shadow */
+}
+
+/* EFEITO EXTRA: Brilho no texto no hover */
+.card:hover .description {
+  text-shadow: 0 0 3px rgba(var(--color-primary-rgb), 0.3); /* Brilho sutil na descrição */
 }

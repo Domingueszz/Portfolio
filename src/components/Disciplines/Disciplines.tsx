@@ -181,7 +181,7 @@ const Disciplines: React.FC = () => {
       \n
       A aplicação apresenta perguntas de múltipla escolha sobre temas como HTML, CSS, JavaScript e 
       lógica de programação, fornecendo feedback imediato ao usuário e exibindo a pontuação final ao término do quiz.`,
-      repoUrl: "https://github.com/Domingueszz/ProjetosFrontEnd/tree/main/REACT/React_JS/3_Quiz",
+      repoUrl: "https://github.com/Domingueszz/ProjetosFrontEnd/tree/main/REACT/React_TS/1_Fullstack",
     },
   ];
 
