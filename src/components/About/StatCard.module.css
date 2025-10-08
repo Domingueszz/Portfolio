@@ -1,11 +1,10 @@
 .card {
-  background: var(--color-white);
+  background: #263245;
   border-radius: var(--border-radius-lg);
   padding: var(--space-xl);
   text-align: center;
   box-shadow: var(--shadow);
   transition: var(--transition);
-  border: 1px solid var(--color-gray-200);
 }
 
 .card:hover {
@@ -30,7 +29,7 @@
 .title {
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: var(--color-gray-700);
+  color: var(--color-white);
   line-height: 1.4;
 }
 

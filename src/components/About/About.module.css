@@ -1,12 +1,12 @@
 .about {
   padding: var(--space-3xl) 0;
-  background: #0c0e13; /* ALTERADO */
+  background: #0c0e13; 
 }
 
 .title {
   font-size: var(--font-size-3xl);
   font-weight: 700;
-  color: var(--color-primary); /* ALTERADO: Para usar a variável primária */
+  color: var(--color-primary); 
   text-align: center;
   margin-bottom: var(--space-2xl);
   letter-spacing: 0.05em;
@@ -21,7 +21,7 @@
 .paragraph {
   font-size: var(--font-size-lg);
   line-height: 1.7;
-  color: var(--color-gray-400); /* ALTERADO */
+  color: var(--color-white); 
   margin-bottom: var(--space-lg);
 }
 
@@ -44,18 +44,18 @@
 }
 
 .card {
-  background: #161b22; /* ALTERADO */
+  background: #161b22; 
   border-radius: var(--border-radius-lg);
   padding: var(--space-xl);
   text-align: center;
-  box-shadow: none; /* ALTERADO */
+  box-shadow: none; 
   transition: var(--transition);
-  border: 1px solid #30363d; /* ALTERADO */
+  border: 1px solid #30363d; 
 }
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: var(--color-primary); /* ALTERADO */
+  border-color: var(--color-primary); 
 }
 
 .iconContainer {
@@ -71,11 +71,10 @@
   animation: float 2s infinite ease-in-out;
 }
 
-/* CORRIGIDO: Seletor mais específico para o título do card */
 .card .title {
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: var(--color-gray-200); /* ALTERADO */
+  color: var(--color-gray-200); 
   line-height: 1.4;
 }
 

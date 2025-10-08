@@ -68,19 +68,19 @@
 
 .subheading {
   font-size: var(--font-size-2xl);
-  color: var(--color-gray-400); /* ALTERADO */
+  color: var(--color-white); /* ALTERADO */
   margin-bottom: var(--space-xl);
   font-weight: 400;
 }
 
 .icon {
   font-size: var(--font-size-2xl);
-  color: var(--color-gray-400); /* ALTERADO */
+  color: var(--color-primary); /* ALTERADO */
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .icon:hover {
-  color: var(--color-primary);
+  color: var(--color-white);
   transform: scale(1.2);
 }
 

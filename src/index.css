@@ -1,8 +1,6 @@
-/* Dentro de index.css */
 
 body {
-  /* ... outros estilos que você já tenha ... */
 
   background-color: #0d1117;
-  color: var(--color-gray-400); /* Define uma cor de texto padrão legível no escuro */
+  color: var(--color-gray-400); 
 }

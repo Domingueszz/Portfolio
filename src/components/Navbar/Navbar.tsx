@@ -7,7 +7,6 @@ const Navbar: React.FC<NavbarProps> = () => {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    // 1. Adicionado 'certificates' para o IntersectionObserver
     const sections = ['home', 'about', 'disciplines', 'certificates', 'contact'];
     const observerOptions = {
       root: null,
@@ -40,12 +39,11 @@ const Navbar: React.FC<NavbarProps> = () => {
     }
   };
 
-  // 2. Adicionado o item 'Certificados' no array de navegação
   const navItems = [
     { id: 'home', label: 'Menu' },
     { id: 'about', label: 'Sobre' },
     { id: 'disciplines', label: 'Projetos' },
-    { id: 'certificates', label: 'Certificados' }, // NOVO ITEM
+    { id: 'certificates', label: 'Certificados' },
     { id: 'contact', label: 'Contato' }
   ];
 

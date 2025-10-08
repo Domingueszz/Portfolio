@@ -16,8 +16,7 @@ function App() {
         <Hero />
         <About />
         <Disciplines />
-        {/* <Projects /> */}
-        <Certificates /> {/* 2. Adicione o componente aqui */}
+        <Certificates /> 
         <Contact />
       </main>
       <Footer />

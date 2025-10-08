@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background: #0a0b0f; /* ALTERADO */
+  background: #0a0b0f; 
   box-shadow: #4f95ff33 0px 2px 12px;
   z-index: 1000;
 }
@@ -27,13 +27,13 @@
 .brand {
   font-size: var(--font-size-xl);
   font-weight: 700;
-  color: var(--color-white); /* ALTERADO */
+  color: var(--color-white); 
 }
 
 .brandButton {
   font-size: var(--font-size-xl);
   font-weight: 700;
-  color: var(--color-white); /* ALTERADO */
+  color: var(--color-white); 
   transition: var(--transition);
 }
 
@@ -58,7 +58,7 @@
 
 .navLink {
   font-weight: 500;
-  color: var(--color-gray-400); /* ALTERADO */
+  color: var(--color-white); 
   transition: var(--transition);
   position: relative;
   padding: var(--space-xs) 0;

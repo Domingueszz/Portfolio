@@ -33,7 +33,14 @@ const getMediaType = (url: string): 'image' | 'video' | 'unknown' => {
 };
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
-  React.useEffect(() => {}, []);
+  
+  React.useEffect(() => {
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []); 
 
   const displayMediaUrl = project.mainImage || project.image;
   const displayDescription = project.detailedDescription || project.description;

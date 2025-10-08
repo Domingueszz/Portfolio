@@ -79,17 +79,14 @@ body {
 }
 
 .section-divider {
-  border-top: 1px solid var(--color-gray-200);
   margin: var(--space-3xl) 0;
 }
 
-/* Focus styles for accessibility */
 *:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
-/* Button reset */
 button {
   border: none;
   background: none;
@@ -97,13 +94,11 @@ button {
   font: inherit;
 }
 
-/* Link reset */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Smooth scrolling with offset for fixed navbar */
 section {
   scroll-margin-top: 80px;
 }
