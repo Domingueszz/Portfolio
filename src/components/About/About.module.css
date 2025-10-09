@@ -86,3 +86,90 @@
     transform: translateY(-8px);
   }
 }
+
+
+@media (min-width: 768px) {
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.buttonContainer {
+  text-align: center;
+  margin-top: var(--space-2xl);
+}
+
+.resumeButton {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resumeButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px -6px var(--color-primary);
+}
+
+.resumeButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.resumeButton:focus {
+  outline: none;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.modalContent {
+  position: relative;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  background-color: #161b22;
+  padding: 20px;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid #30363d;
+  cursor: default;
+  overflow-y: auto;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resumeImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}

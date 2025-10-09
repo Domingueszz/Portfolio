@@ -5,14 +5,14 @@ interface DisciplineCardProps {
   title: string;
   description: string;
   image: string;
-  onViewProject: () => void; // Nova propriedade: uma função a ser chamada no clique
+  onViewProject: () => void; 
 }
 
 const DisciplineCard: React.FC<DisciplineCardProps> = ({
   title,
   description,
   image,
-  onViewProject // Recebemos a função aqui
+  onViewProject 
 }) => {
   return (
     <article className={styles.card}>

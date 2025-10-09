@@ -1,24 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import StatCard from './StatCard';
 import styles from './About.module.css';
+import { IoClose } from 'react-icons/io5';
+
+import curriculoImg from '../../assets/curriculo/curriculo_Pablo_page-0001.jpg';
 
 interface AboutProps {}
 
 const About: React.FC<AboutProps> = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalOpen]);
+
   const stats = [
     {
       id: 'technical-mec',
-      title: 'Completed Technical Mechatronics',
+      title: 'Formado em Técnico de Mecatrônica',
       icon: 'mortarboard'
     },
     {
       id: 'graduating-ads',
-      title: 'Graduating in Technology ADS',
+      title: 'Graduando em ADS',
       icon: 'document'
     },
     {
       id: 'working-2rp',
-      title: 'Working at 2RP Net',
+      title: 'Trabalhando na 2RP Net',
       icon: 'chart'
     }
   ];
@@ -54,8 +70,28 @@ const About: React.FC<AboutProps> = () => {
               />
             ))}
           </div>
+
+          <div className={styles.buttonContainer}>
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className={styles.resumeButton}
+            >
+              Ver Currículo
+            </button>
+          </div>
         </div>
       </section>
+
+      {isModalOpen && (
+        <div className={styles.modalOverlay} onClick={() => setIsModalOpen(false)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeButton} onClick={() => setIsModalOpen(false)}>
+              <IoClose />
+            </button>
+            <img src={curriculoImg} alt="Currículo de Pablo" className={styles.resumeImage} />
+          </div>
+        </div>
+      )}
     </>
   );
 };

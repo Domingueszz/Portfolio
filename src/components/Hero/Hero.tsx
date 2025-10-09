@@ -6,7 +6,7 @@ import type { Container, Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim"; 
 
 import styles from './Hero.module.css';
-import { SiCplusplus, SiJavascript, SiHtml5, SiCss3, SiReact, SiExpo } from 'react-icons/si';
+import { SiCplusplus, SiJavascript, SiHtml5, SiCss3, SiReact, SiExpo, SiFigma, SiCanva} from 'react-icons/si';
 import { DiJava } from 'react-icons/di';
 import { TbBrandReact } from 'react-icons/tb';
 import profilePhoto from '../../assets/images/perfilOficial.png';
@@ -54,10 +54,10 @@ const Hero: React.FC = () => {
               },
               particles: {
                   color: {
-                      value: "#759eff9e", // Cor primária para as partículas
+                      value: "#759eff9e", 
                   },
                   links: {
-                      color: "#759eff9e", // Cor primária para as linhas
+                      color: "#759eff9e", 
                       distance: 150,
                       enable: true,
                       opacity: 0.3,
@@ -123,6 +123,8 @@ const Hero: React.FC = () => {
               <SiReact className={styles.icon} title="ReactJS" />
               <TbBrandReact className={styles.icon} title="ReactTS" />
               <SiExpo className={styles.icon} title="Expo" />
+              <SiFigma className={styles.icon} title="Figma" />
+              <SiCanva className={styles.icon} title="Canva" />
             </div>
           </div>
           

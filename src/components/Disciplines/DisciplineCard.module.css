@@ -1,15 +1,11 @@
-/* --- Configuração do Card --- */
 .card {
-  position: relative; /* Essencial para posicionar as linhas da borda */
+  position: relative; 
   background: #263245;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow);
-  overflow: hidden; /* Mantém o overflow hidden */
+  overflow: hidden; 
   transition: var(--transition);
-  
-  /* Remove a borda estática original para substituí-la pela animação */
   border: none; 
-  /* border: 1px solid var(--color-gray-200); <-- Remova ou comente esta linha */
 }
 
 .card:hover {
@@ -17,49 +13,41 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* --- Estilização Base das Linhas --- */
 .line {
   position: absolute;
-  background-color: var(--color-primary); /* Cor da linha animada */
+  background-color: var(--color-primary); 
   transition: all 0.3s ease-out;
 }
 
-/* --- Posição e Estado Inicial das Linhas --- */
-
-/* Linha Superior (Top) e Inferior (Bottom) */
 .line-top, .line-bottom {
-  height: 2px; /* Espessura da linha horizontal */
-  width: 0;    /* Começa com largura zero (invisível) */
+  height: 2px; 
+  width: 0;   
 }
 .line-top { top: 0; left: 0; }
 .line-bottom { bottom: 0; right: 0; }
 
-/* Linha Direita (Right) e Esquerda (Left) */
 .line-right, .line-left {
-  width: 2px;   /* Espessura da linha vertical */
-  height: 0;   /* Começa com altura zero (invisível) */
+  width: 2px;   
+  height: 0;   
 }
 .line-right { top: 0; right: 0; }
 .line-left { bottom: 0; left: 0; }
 
-/* --- Animação no Hover --- */
 .card:hover .line-top,
 .card:hover .line-bottom {
-  width: 100%; /* Expande a largura total no hover */
+  width: 100%; 
 }
 
 .card:hover .line-right,
 .card:hover .line-left {
-  height: 100%; /* Expande a altura total no hover */
+  height: 100%; 
 }
 
-/* --- Hover do Card --- */
 .card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-lg); 
 }
 
-/* --- Imagem --- */
 .imageContainer {
   position: relative;
   overflow: hidden;
@@ -78,7 +66,6 @@
   filter: blur(0);
 }
 
-/* --- Botão "Ver mais" --- */
 .viewButton {
   position: absolute;
   top: var(--space-md);
@@ -105,7 +92,6 @@
   outline: none;
 }
 
-/* --- Conteúdo --- */
 .content {
   padding: var(--space-lg);
 }
